@@ -1,0 +1,23 @@
+{
+  "name": "node-cdbtail",
+  "version": "0.1.0",
+  "description": "A super simple couchdb CLI change stream.",
+  "main": "./bin/cdbtail.js",
+  "bin": {
+    "node-cdbtail": "cdbtail.js"
+  },
+  "dependencies": {
+    "follow": "~0.8.0",
+    "nopt": "~1.0.10"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/snbartell/node-cdbtail.git"
+  },
+  "author": "Stephen Bartell",
+  "license": "MIT"
+}
