@@ -10,6 +10,7 @@ var follow = require('follow')
 //
 var known = { 'verbose': Boolean
             , 'help': Boolean
+            , 'id': String
             }
   , shorts= { 'v': ['--verbose']
             , 'h': ['--help']
@@ -25,11 +26,13 @@ var known = { 'verbose': Boolean
             , 'options:'
             , '   -v      show options'
             , '   -h      youre staring at it'
+            , '   -id     filter this id (uses built-in filter)'
             , ''
             , 'environment variables: '
-            , '   db,     path to database'
-            , '   since,  "since" query param. since="now" is last checkpoint'
-            , '   filter, dynamic client-side filter.'
+            , '   db,       path to database'
+            , '   since,    "since" query param. since="now" is last checkpoint'
+            , '   filter,   dynamic client-side filter.'
+            , '   cdbdelim  document delimiter'
             ].join('\n')
 
 
@@ -40,7 +43,20 @@ var opts =  { db: parsed.argv.remain.shift() || process.env.db
             , since: process.env.since || 'now'
             , filter: process.env.filter
             , include_docs: true
+            // built-in filter.
+            , filter: function (doc, req) {
+                        if (parsed.id) {
+                          if (doc._id === parsed.id) return true
+                          else return false
+
+                        } else {
+                        return true
+                        }
+                      }
             }
+  , cdbdelim = process.env.cdbdelim || '\r\n\n\n'
+
+if (process.env.filter) opts.filter = process.env.filter
 
 if (parsed.help) {
   console.log(help)
@@ -60,5 +76,5 @@ if (parsed.verbose)
 //
 follow(opts, function (er, change) {
   if (!er)
-    process.stdout.write(JSON.stringify(change.doc)+'\n')
+    process.stdout.write(JSON.stringify(change.doc)+cdbdelim)
 })
