@@ -1,10 +1,9 @@
 {
   "name": "node-cdbtail",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A super simple couchdb CLI change stream.",
-  "main": "./bin/cdbtail.js",
   "bin": {
-    "node-cdbtail": "cdbtail.js"
+    "cdbtail": "./bin/cdbtail.js"
   },
   "dependencies": {
     "follow": "~0.8.0",
