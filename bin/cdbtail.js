@@ -2,6 +2,7 @@
 var follow = require('follow')
   , nopt = require('nopt')
   , util = require('util')
+  , pkg = require('../package.json')
 
 
 //
@@ -14,8 +15,8 @@ var known = { 'verbose': Boolean
             , 'h': ['--help']
             }
   , parsed = nopt(known, shorts, process.argv)
-  , help =  [ 'cdbtail'
-            , 'Pure couchdb change stream on terminal.'
+  , help =  [ 'cdbtail v.'+pkg.version
+            , ''+pkg.description
             , ''
             , 'usage:     cdbtail [options] [db]'
             , ''
