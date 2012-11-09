@@ -1,9 +1,9 @@
 {
-  "name": "node-cdbtail",
-  "version": "0.1.2",
-  "description": "A super simple couchdb CLI change stream.",
+  "name": "node-couchs",
+  "version": "0.1.3",
+  "description": "Follow.js based, bare-naked couchdb change stream to stdout.",
   "bin": {
-    "cdbtail": "./bin/cdbtail.js"
+    "couchs": "./bin/couchs.js"
   },
   "dependencies": {
     "follow": "~0.8.0",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/snbartell/node-cdbtail.git"
+    "url": "git://github.com/snbartell/node-couchs.git"
   },
   "author": "Stephen Bartell",
   "license": "MIT"

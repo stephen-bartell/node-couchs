@@ -1,6 +1,6 @@
 # node-cdbtail
 
-A super simple couchdb CLI change stream.
+Follow.js based, bare-naked couchdb change stream to stdout.
 
 ## Installation
 ``` bash
